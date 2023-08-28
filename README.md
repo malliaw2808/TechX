@@ -41,3 +41,18 @@ GET `localhost:9090/job` || `https://techx-e77470333148.herokuapp.com/job`
 
 PASSED ALL TESTING Representations and Resources
 ![image](https://github.com/malliaw2808/TechX/assets/67695658/053182be-668a-4c3e-b0ce-58c782a849f7)
+
+# Author
+Nguyen Tuan Anh - email: tuananh131001@gmail.com
+
+# Requirement
+```
+# Assessment Test
+Technology:
+- Dropwizard API Framework
+Write an API for a background job poller. The job can be simple as a sleep for 10 seconds.
+API Req:
+- /job/submit : Submit the job for execution
+- /job/{id}/status: Get Job status
+The storage of the job status and architecture is up to the developer to choose from.
+```
