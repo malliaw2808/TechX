@@ -3,7 +3,7 @@
 - Git
 - Postman
 - PC/Mac/Laptop
-- JAVA
+- Java
 - Maven
 - IntelliJ
 # Deployment
