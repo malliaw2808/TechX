@@ -1,6 +1,7 @@
 server:
   type: default
   maxThreads: 1024
+  port: $PORT
 ---
 logging:
   level: INFO
