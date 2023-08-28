@@ -14,11 +14,15 @@ Link: https://techx-e77470333148.herokuapp.com/
 
 How to start the TechX application
 ---
-
+### Option 1
 1. Run `mvn clean install` to build your application
 1. Start application with `java -jar target/techx-1.0-SNAPSHOT.jar server config.yml`
 1. To check that your application is running enter url `http://localhost:9090`
-
+### Option 2 
+1. Clone and open project in IntelliJ
+2. Open Run/Debug Configurations -> Edit SDK , program argument , class similar to the image
+![image](https://github.com/malliaw2808/TechX/assets/13903635/64b67a81-c420-4769-b481-6f0eb4fc50ce)
+3. SHIFT + F10 to run the program
 
 # API
 
