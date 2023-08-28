@@ -1,7 +1,5 @@
 package techx.api;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Job {
     private String id;
     private Boolean completed;
