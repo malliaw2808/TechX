@@ -1,5 +1,11 @@
 # TechX Test
-
+# Pre-requisites
+- Git
+- Postman
+- PC/Mac/Laptop
+- JAVA
+- Maven
+- IntelliJ
 # Deployment
 
 Link: https://techx-e77470333148.herokuapp.com/
