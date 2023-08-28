@@ -1,8 +1,11 @@
-package TECHX;
+package techx;
 
 import io.dropwizard.core.Application;
 import io.dropwizard.core.setup.Bootstrap;
 import io.dropwizard.core.setup.Environment;
+import techx.resources.JobResource;
+
+import java.util.HashMap;
 
 public class TechXApplication extends Application<TechXConfiguration> {
 
@@ -23,7 +26,9 @@ public class TechXApplication extends Application<TechXConfiguration> {
     @Override
     public void run(final TechXConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        JobResource resource = new JobResource(new HashMap<>());
+        environment.jersey().register(resource);
+
     }
 
 }

@@ -1,4 +1,4 @@
-package TECHX;
+package techx;
 
 import io.dropwizard.core.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
