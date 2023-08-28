@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import techx.api.Job;
 
 import java.util.Map;
@@ -23,7 +24,7 @@ public class JobResource {
 
     @POST
     @Path("/submit")
-    public String submitJob() {
+    public Response submitJob() {
         String jobId = UUID.randomUUID().toString();
         jobMap.put(jobId, new Job(jobId));
 
@@ -37,19 +38,35 @@ public class JobResource {
             jobMap.get(jobId).setCompleted(true);
         });
 
-        return jobId;
+        return Response.ok(jobId).build();
     }
 
     @GET
     @Path("/")
-    public String getAllJob() throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.writeValueAsString(jobMap);
+    public Response getAllJob() {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String jobMapJson = objectMapper.writeValueAsString(jobMap);
+            return Response.ok(jobMapJson).build();
+        } catch (JsonProcessingException e) {
+            String errorMessage = "Error processing job data.";
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(errorMessage)
+                    .build();
+        }
     }
 
     @GET
     @Path("/{id}/status")
-    public Job getJob(@PathParam("id") String jobId) {
-        return jobMap.getOrDefault(jobId, new Job());
+    public Response getJob(@PathParam("id") String jobId) {
+        if (jobMap.containsKey(jobId)){
+            Object jobStatus = jobMap.get(jobId);
+            return Response.ok(jobStatus).build();
+        } else {
+            String errorMessage = "Job not found with ID: " + jobId;
+            return Response.status(Response.Status.NOT_FOUND)
+                    .entity(errorMessage)
+                    .build();
+        }
     }
 }
